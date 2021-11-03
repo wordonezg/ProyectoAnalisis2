@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-4">
+    <a th:href="@{/new}" class="btn btn-primary">Nuevo</a>
+    <br> <br>
+    <table class="table">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>NOMBRE</td>
+            <td>TIPO</td>
+            <td>EMBALAJE</td>
+            <td>PRECIO</td>
+            <td>STOCK</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="bodega:${bodegas}">
+            <td th:text="${bodega.id}"></td>
+            <td th:text="${bodega.nombre}"></td>
+            <td th:text="${bodega.tipo}"></td>
+            <td th:text="${bodega.embalaje}"></td>
+            <td th:text="${bodega.precio}"></td>
+            <td th:text="${bodega.stock}"></td>
+            <td>
+                <a th:href="@{/editar/}+${bodega.id}" class="btn btn-warning">Editar</a>
+                <a th:href="@{/eliminar/}+${bodega.id}" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
